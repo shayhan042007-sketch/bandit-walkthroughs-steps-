@@ -1,0 +1,20 @@
+Level 4 → Level 5 Walkthrough
+
+Goal
+
+Retrieve the password for the next level stored in the only human-readable file located inside the inhere directory.
+
+cd: Changes the current working directory.
+
+file: Determines the file type (e.g., ASCII text vs. binary data).
+
+cat: Displays the contents of a file.
+
+Connect to Level 4 using the password retrieved from Level 3:  ssh bandit4@bandit.labs.overthewire.org -p 2220
+
+Navigate into the inhere directory: cd inhere
+Inspect all files to find which one contains human-readable text: file ./-*
+
+Verification: Output will show several files listed as data, but one file (e.g., ./-file07) will be identified as ASCII text
+
+Read the contents of that human-readable file: cat ./-file07
