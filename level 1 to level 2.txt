@@ -1,0 +1,13 @@
+level 1 to level 2 
+
+Goal:
+Retrieve the password for the next level stored in a file named - located in the home directory.
+
+cat: Displays the content of a file
+/: Specifies the current directory path explicitly (used to prevent dashed filenames from being parsed as command options).
+
+ls - Verification: You will see a file named -
+
+Read the contents of the file:
+cat ./- 
+ you will get password for level 2
