@@ -1,0 +1,24 @@
+Goal
+Connect to the OverTheWire game server using SSH to access the bandit0 account and read the password stored in readme
+Host: bandit.labs.overthewire.org
+
+Port: 2220
+
+Username: bandit0
+
+Password: bandit0 
+
+ssh: Opens a secure remote shell session (-p specifies the port).
+
+ls: Lists files in the current working directory
+
+cat: Displays the text contents of a file.
+
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+ls- readme 
+
+cat readme 
+ 
+6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR level 1 password 
+level 0 is completed 
