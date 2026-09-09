@@ -1,0 +1,33 @@
+Level 5 → Level 6 Walkthrough
+
+Goal
+
+Find a file inside the inhere directory that meets three specific criteria: human-readable, 1033 bytes in size, and not executable.
+
+cd: Changes the working directory.
+
+find: Searches for files in a directory hierarchy based on criteria like size, type, or permissions.
+
+cat: Displays file contents.
+
+Connect to Level 5 using the password retrieved from Level 4: ssh bandit5@bandit.labs.overthewire.org -p 2220
+
+Navigate into the inhere directory: cd inhere
+
+Use find with size and permission filters to locate the exact file: find . -type f -size 1033c ! -executable
+
+Explanation of flags:
+
+. searches the current directory and subdirectories.
+
+-type f restricts results to regular files.
+
+-size 1033c filters for files that are exactly 1033 bytes (c stands for bytes).
+
+! -executable excludes executable files.
+
+Verification: Output will display a single file path, such as ./maybehere07/.file2
+
+Read the contents of the target file: cat ./maybehere07/.file2
+
+Verification: A 32-character password string will print to your terminal. Copy this string for Level 6
