@@ -1,0 +1,18 @@
+Level 7 → Level 8 Walkthrough
+
+Goal
+
+Retrieve the password for the next level stored in the file data.txt next to the word millionth
+
+grep: Searches for plain-text data sets for lines that match a specified pattern.
+
+Step-by-Step Instructions
+
+Connect to Level 7 using the password retrieved from Level 6:
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+
+Search data.txt for the line containing the word millionth:
+grep "millionth" data.txt
+
+grep scans the file and outputs only the lines containing the specified keyword.
+Output will display millionth followed by a tab/space and a 32-character password string. Copy this string for Level 8.
