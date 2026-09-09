@@ -1,0 +1,21 @@
+Level 2 → Level 3 Walkthrough
+
+Goal
+
+Retrieve the password for the next level stored in a file named spaces in this filename located in the home directory.
+
+ssh bandit2@bandit.labs.overthewire.org -p 2220
+
+
+ls: Lists files in the current working directory.
+Verification: You will see a file named spaces in this filename
+
+cat: Displays the contents of a file.
+
+cat "spaces in this filename"
+
+Alternative: You can also use backslashes to escape each space: cat spaces\ in\ this\ filename
+
+ you will get password for level 3 
+
+proceed to level 3 
