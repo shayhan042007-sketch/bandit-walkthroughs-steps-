@@ -1,0 +1,62 @@
+Level 12 → Level 13 Walkthrough
+
+Goal
+
+Retrieve the password for the next level stored in the file data.txt, which is a hex dump of a file that has been repeatedly compressed using different algorithms (gzip, bzip2, tar).
+
+Commands Used
+
+mktemp: Creates a temporary file or directory.
+
+xxd: Converts a hex dump back into binary (-r or -revert).
+
+file: Determines file type.
+
+gzip / gunzip: Decompresses .gz files.
+
+bzip2: Decompresses .bz2 files (-d flag).
+
+tar: Extracts .tar archive files (-xf flags).
+
+Step-by-Step Instructions
+
+Connect to Level 12 using the password retrieved from Level 11:
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+
+Create a temporary working directory and copy data.txt into it:
+mkdir /tmp/mywork12
+cp data.txt /tmp/mywork12/
+cd /tmp/mywork12
+
+Revert the hex dump into a binary file:
+xxd -r data.txt data_bin
+
+Repeatedly check the file type using file and decompress using the matching command until you reach plain text:
+
+If gzip archive: Rename to .gz extension and run gzip -d <filename>
+
+If bzip2 archive: Rename to .bz2 extension and run bzip2 -d <filename>
+
+If tar archive: Rename to .tar extension and run tar -xf <filename>
+
+Example iteration sequence: 
+
+file data_bin                         -Shows: gzip compressed data
+mv data_bin data1.gz
+gzip -d data1.gz
+
+file data1                            - Shows: bzip2 compressed data
+bzip2 -d data1                        - Generates data1.out
+
+file data1.out                        - Shows: gzip compressed data
+mv data1.out data2.gz
+gzip -d data2.gz
+
+file data2                             -Shows: POSIX tar archive
+mv data2 data3.tar
+tar -xf data3.tar                      -Extracts file (e.g., data4.bin)
+
+ Repeat file check and corresponding decompression until file returns: ASCII text
+cat <final_extracted_filename>
+
+A 32-character password string will print to your terminal. Copy this password for Level 13.
