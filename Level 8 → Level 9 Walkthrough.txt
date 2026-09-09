@@ -1,0 +1,24 @@
+Level 8 → Level 9 Walkthrough
+Goal
+
+Retrieve the password for the next level stored in the file data.txt, which is the only line of text that occurs only once.
+
+Commands Used
+
+sort: Sorts lines of text files.
+
+uniq: Reports or omits repeated lines (-u prints only unique lines).
+
+| (Pipe): Passes the output of one command as the input to another command.
+
+Step-by-Step Instructions
+
+Connect to Level 8 using the password retrieved from Level 7:
+ssh bandit8@bandit.labs.overthewire.org -p 2220
+
+Sort the file and filter out duplicate lines to find the unique string:
+sort data.txt | uniq -u
+
+uniq requires sorted input to properly detect duplicate adjacent lines. Piping (|) the output of sort directly into uniq -u filters the list to show only the line that appears exactly once.
+
+A 32-character password string will print to your terminal. Copy this string for Level 9.
