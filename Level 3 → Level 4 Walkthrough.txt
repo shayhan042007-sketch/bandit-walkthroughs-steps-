@@ -1,0 +1,19 @@
+Level 3 → Level 4 Walkthrough
+Goal
+
+Retrieve the password for the next level stored in a hidden file inside the inhere directory.
+cd: Changes the current working directory.
+
+ls: Lists directory contents (-a shows hidden files starting with a dot .).
+
+cat: Displays the contents of a file.
+
+ssh bandit3@bandit.labs.overthewire.org -p 2220 put the password you got in level 2 
+
+cd inhere-Navigate into the inhere directory
+
+Navigate into the inhere directory by using ls -a
+
+Verification: You will see a hidden file named .hidden
+
+cat .hidden----->Verification: A 32-character password string will print to your terminal. Copy this string for Level 4.
