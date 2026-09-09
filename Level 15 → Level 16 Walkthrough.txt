@@ -1,0 +1,26 @@
+Level 15 → Level 16 Walkthrough
+
+Goal
+
+Retrieve the password for Level 16 by submitting the current level's password (bandit15) to port 30001 on localhost using SSL/TLS encryption.
+
+Commands Used
+
+openssl s_client: Connects to a remote host using SSL/TLS to establish an encrypted session.
+
+cat: Displays file contents.
+
+Step-by-Step Instructions
+
+Connect to Level 15 using the password retrieved from Level 14:
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+
+Connect to port 30001 using OpenSSL's SSL/TLS client:
+openssl s_client -connect localhost:30001
+
+Once the connection is established and output pauses, paste the bandit15 password and press Enter.
+
+(Alternative single-line command):
+cat /etc/bandit_pass/bandit15 | openssl s_client -quiet -connect localhost:30001
+
+The server will respond with Correct! followed by the 32-character password string for Level 16.

@@ -1,0 +1,25 @@
+Level 14 → Level 15 Walkthrough
+
+Goal
+
+Retrieve the password for Level 15 by submitting the current level's password (bandit14) to port 30000 on localhost.
+
+Commands Used
+
+nc (netcat) / telnet: Utility to read and write data across network connections using TCP or UDP protocols.
+
+cat: Displays file contents.
+
+Step-by-Step Instructions
+
+Make sure you are logged in as bandit14.
+
+Send the bandit14 password to port 30000 using Netcat:
+nc localhost 30000
+
+Paste the bandit14 password you retrieved from /etc/bandit_pass/bandit14 into the terminal and press Enter.
+
+(Alternative single-line command):
+cat /etc/bandit_pass/bandit14 | nc localhost 30000
+
+If the submitted password is correct, the server will respond with Correct! followed by the 32-character password string for Level 15.

@@ -1,0 +1,31 @@
+Level 13 → Level 14 Walkthrough
+
+Goal
+
+Retrieve the password for the next level stored in /etc/bandit_pass/bandit14 by using the private SSH key (sshkey.private) located in bandit13's home directory to log in to localhost as user bandit14.
+
+Commands Used
+
+ls: Lists directory contents.
+
+ssh: Connects to a remote system or local SSH service using an identity file (-i specifies the private key file).
+
+cat: Displays the contents of a file.
+
+Step-by-Step Instructions
+
+Connect to Level 13 using the password retrieved from Level 12:
+ssh bandit13@bandit.labs.overthewire.org -p 2220
+
+Verify the presence of the private SSH key in the home directory:
+ls -la
+
+You will see sshkey.private listed among the files.
+
+se the private key to SSH into localhost as user bandit14:
+ssh -i sshkey.private bandit14@localhost -p 2220      press yes 
+
+ce authenticated as bandit14, read the password file:
+cat /etc/bandit_pass/bandit14
+
+A 32-character password string will print to your terminal. Copy this string for Level 14.
